@@ -10,7 +10,7 @@
 
 
 enum blinkState {Aus = 0, Links_Blink, Rechts_Blink, Warn_Blink};
-enum abbiegelichtState {Links_Aktiv = -1, Inaktiv, Rechts_Aktiv};
+enum abbiegelichtState { Inaktiv, Links_Aktiv, Rechts_Aktiv};
 enum hebelState {Links_Rastend = -2, Links_Tipp, Nullstellung, Rechts_Tipp, Rechts_Rastend};
 
 void printStates();
