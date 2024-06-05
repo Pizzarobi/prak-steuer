@@ -29,9 +29,21 @@ char* hs = "Hebelstellung:";
 
 int main()
 {
-    abbiegelichtverhalten();
+    hebelstellung = Rechts_Rastend;
+    for(int i = 0; i < 100; i++)
+    {
+        if(i > 5)
+        {
+            hebelstellung = Nullstellung;
+        }
+        blinkVerhaltenManager();
+        abbiegelichtverhalten();
+        printStates();
+        // fflush(stdin);
+        // getchar();
+        // fflush(stdin);
+    }
     // hebelstellung = Rechts_Blink;
-    printStates();
 
     return 0;
 }

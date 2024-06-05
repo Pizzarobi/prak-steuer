@@ -3,4 +3,6 @@
 
 #include "testFramework.h"
 
+void blinkVerhaltenManager();
+
 #endif // BLINKVERHALTEN_H
