@@ -1,0 +1,25 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+variables
+{
+  msTimer myTimer;
+}
+
+on start
+{
+  @sysvar::BSG::speed = 0;
+  setTimer(myTimer,50);
+}
+
+on timer myTimer
+{
+  if(@sysvar::SIM::canSimToggle)
+  {
+    $CAN::BSG::Geschwindigkeit_GesPDU::Geschwindigkeit_GesPDU_Ges = @sysvar::BSG::speed;
+  }
+  setTimer(myTimer,50);
+}
+

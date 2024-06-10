@@ -1,0 +1,24 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+  msTimer myTimer;
+}
+on start
+{
+  setTimer(myTimer,50);
+}
+
+on timer myTimer
+{
+  if(@sysvar::SIM::canSimToggle)
+  {
+    $CAN::StatusWarnblink_WarnblinkPDU::StatusWarnblink_WarnblinkPDU_WarnblinkAN_AUS = @sysvar::SZMK::warnblink;
+  }
+  setTimer(myTimer,50);
+}
+

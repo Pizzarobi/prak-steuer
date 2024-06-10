@@ -1,0 +1,25 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+  msTimer myTimer;
+}
+
+on start
+{
+  setTimer(myTimer,50);
+}
+
+on timer myTimer
+{  
+  if(@sysvar::SIM::canSimToggle)
+  {
+    $CAN::VectorSimulationNode::StatusFahrlicht_FahrlichtPDU::StatusFahrlicht_FahrlichtPDU_FahrlichtAN_AUS = @sysvar::LSM::fahrlicht;
+  }
+  setTimer(myTimer,50);
+}
+

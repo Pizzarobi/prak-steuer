@@ -1,0 +1,25 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+  msTimer szlsTimer;
+}
+
+on start
+{
+  setTimer(szlsTimer, 50);
+}
+
+on timer szlsTimer
+{
+  if(@sysvar::SIM::canSimToggle)
+  {
+    $CAN::Lenksaeule_Hebelstellung::Lenksaeule_Hebelstellung_Hebelstellung = @sysvar::SZLS::hebelstellung;
+    $CAN::Lenksaeule_Lenkradwinkel::Lenksaeule_Lenkradwinkel_Lenkradwinkel = @sysvar::SZLS::lenkradwinkel;
+  }
+  setTimer(szlsTimer,50);
+}

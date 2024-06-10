@@ -1,0 +1,256 @@
+<?xml version="1.0"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="SimPanel">
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl2" Children="Controls" ControlName="cont_canSim">
+      <Property Name="Name">CheckBoxControl2</Property>
+      <Property Name="Size">99, 17</Property>
+      <Property Name="Location">94, 272</Property>
+      <Property Name="Text">CAN Simulation</Property>
+      <Property Name="SymbolConfiguration">6;16;SIM;;;canSimToggle;1;;;-1;;;;</Property>
+      <Property Name="TabIndex">46</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl6" Children="Controls" ControlName="Static Text 5">
+      <Property Name="Name">StaticTextControl6</Property>
+      <Property Name="Size">74, 13</Property>
+      <Property Name="Location">209, 287</Property>
+      <Property Name="Text">Blinkverhalten</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LCDControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="LCDControl4" ControlName="LCD Control 4">
+      <Property Name="Name">LCDControl4</Property>
+      <Property Name="Size">45, 50</Property>
+      <Property Name="Location">221, 314</Property>
+      <Property Name="NumberIntDigits">1</Property>
+      <Property Name="DecimalPlaces">0</Property>
+      <Property Name="SymbolConfiguration">6;2;FhrzCAN;ZSE;Lichtmodul_Blinkersteuerung;Lichtmodul_Blinkersteuerung_Blinkverhalten;1;CAN;;-1;;;;</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="GroupBoxControl1" Children="Controls" ControlName="Group Box 1">
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl7" Children="Controls" ControlName="Static Text 6">
+        <Property Name="Name">StaticTextControl7</Property>
+        <Property Name="Size">65, 13</Property>
+        <Property Name="Location">82, 216</Property>
+        <Property Name="Text">AnzahlLEDs</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="LEDControl4" ControlName="LED Control 2">
+        <Property Name="Name">LEDControl4</Property>
+        <Property Name="Size">24, 24</Property>
+        <Property Name="Location">26, 115</Property>
+        <Property Name="SymbolConfiguration">6;2;FhrzCAN;VectorSimulationNode;StatusFahrlicht_FahrlichtPDU;StatusFahrlicht_FahrlichtPDU_FahrlichtAN_AUS;1;CAN;;-1;;;;</Property>
+        <Property Name="TabIndex">36</Property>
+        <Property Name="ReadOnlyControl">True</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.LCDControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="LCDControl5" ControlName="LCD Control 5">
+        <Property Name="Name">LCDControl5</Property>
+        <Property Name="Size">45, 50</Property>
+        <Property Name="Location">94, 243</Property>
+        <Property Name="NumberIntDigits">1</Property>
+        <Property Name="DecimalPlaces">0</Property>
+        <Property Name="SymbolConfiguration">6;2;FhrzCAN;ZSE;Lichtmodul_Blinkersteuerung;Lichtmodul_Blinkersteuerung_AnzahlLEDs;1;CAN;;-1;;;;</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.LCDControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="LCDControl1" ControlName="LCD Control 1">
+        <Property Name="Name">LCDControl1</Property>
+        <Property Name="Size">68, 50</Property>
+        <Property Name="Location">82, 16</Property>
+        <Property Name="NumberIntDigits">2</Property>
+        <Property Name="DecimalPlaces">0</Property>
+        <Property Name="SymbolConfiguration">6;2;FhrzCAN;SZLS;Lenksaeule_Hebelstellung;Lenksaeule_Hebelstellung_Hebelstellung;1;CAN;;-1;;;;</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="LEDControl3" ControlName="LED Control 1">
+        <Property Name="Name">LEDControl3</Property>
+        <Property Name="Size">24, 24</Property>
+        <Property Name="Location">26, 27</Property>
+        <Property Name="SymbolConfiguration">6;2;FhrzCAN;SZMK;StatusWarnblink_WarnblinkPDU;StatusWarnblink_WarnblinkPDU_WarnblinkAN_AUS;1;CAN;;-1;;;;</Property>
+        <Property Name="TabIndex">35</Property>
+        <Property Name="ReadOnlyControl">True</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.LCDControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="LCDControl2" ControlName="LCD Control 2">
+        <Property Name="Name">LCDControl2</Property>
+        <Property Name="Size">68, 50</Property>
+        <Property Name="Location">82, 83</Property>
+        <Property Name="NumberIntDigits">2</Property>
+        <Property Name="DecimalPlaces">0</Property>
+        <Property Name="SymbolConfiguration">6;2;FhrzCAN;BSG;Geschwindigkeit_GesPDU;Geschwindigkeit_GesPDU_Ges;1;CAN;;-1;;;;</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.LCDControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="LCDControl3" ControlName="LCD Control 3">
+        <Property Name="Name">LCDControl3</Property>
+        <Property Name="Size">68, 50</Property>
+        <Property Name="Location">82, 155</Property>
+        <Property Name="NumberIntDigits">2</Property>
+        <Property Name="DecimalPlaces">0</Property>
+        <Property Name="SymbolConfiguration">6;2;FhrzCAN;SZLS;Lenksaeule_Lenkradwinkel;Lenksaeule_Lenkradwinkel_Lenkradwinkel;1;CAN;;-1;;;;</Property>
+      </Object>
+      <Property Name="Name">GroupBoxControl1</Property>
+      <Property Name="Size">160, 308</Property>
+      <Property Name="Location">203, 71</Property>
+      <Property Name="Text">onCan</Property>
+      <Property Name="TabIndex">36</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl1" Children="Controls" ControlName="cont_logSim">
+      <Property Name="Name">CheckBoxControl1</Property>
+      <Property Name="Size">103, 17</Property>
+      <Property Name="Location">95, 242</Property>
+      <Property Name="Text">Logik Simulation</Property>
+      <Property Name="SymbolConfiguration">6;16;SIM;;;simToggle;1;;;-1;;;;</Property>
+      <Property Name="TabIndex">29</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="LEDControl2" ControlName="cont_ab_l">
+      <Property Name="Name">LEDControl2</Property>
+      <Property Name="Size">24, 24</Property>
+      <Property Name="Location">20, 29</Property>
+      <Property Name="SymbolConfiguration">6;16;LM;;;ab_links;1;;;-1;;;;</Property>
+      <Property Name="TabIndex">19</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="LEDControl1" ControlName="cont_ab_R">
+      <Property Name="Name">LEDControl1</Property>
+      <Property Name="Size">24, 24</Property>
+      <Property Name="Location">700, 29</Property>
+      <Property Name="SymbolConfiguration">6;16;LM;;;ab_rechts;1;;;-1;;;;</Property>
+      <Property Name="TabIndex">18</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="TrackBarControl3" Children="Controls" ControlName="cont_hebelstellung">
+      <Property Name="Name">TrackBarControl3</Property>
+      <Property Name="Size">261, 47</Property>
+      <Property Name="Location">408, 98</Property>
+      <Property Name="Maximum">2</Property>
+      <Property Name="DisplayMinMax">True</Property>
+      <Property Name="Minimum">-2</Property>
+      <Property Name="LargeChange">3</Property>
+      <Property Name="LargeChangeDouble">3</Property>
+      <Property Name="MaximumDouble">2</Property>
+      <Property Name="MinimumDouble">-2</Property>
+      <Property Name="DisplayValue">True</Property>
+      <Property Name="SymbolConfiguration">6;16;SZLS;;;hebelstellung;1;;;-1;;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl5" Children="Controls" ControlName="Text 6">
+      <Property Name="Name">StaticTextControl5</Property>
+      <Property Name="Size">71, 13</Property>
+      <Property Name="Location">502, 79</Property>
+      <Property Name="Text">Hebelstellung</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ProgressBarControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="ProgressBarControl4" Children="Controls" ControlName="cont_HL">
+      <Property Name="Name">ProgressBarControl4</Property>
+      <Property Name="Size">311, 50</Property>
+      <Property Name="Location">49, 385</Property>
+      <Property Name="OriginValue">0</Property>
+      <Property Name="Maximum">8</Property>
+      <Property Name="DecimalPlaces">0</Property>
+      <Property Name="AlarmUpperLimit">8</Property>
+      <Property Name="ValueSize">38, 28</Property>
+      <Property Name="SymbolConfiguration">6;16;LM;;;bv_HL;1;;;-1;;;;</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ProgressBarControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="ProgressBarControl3" Children="Controls" ControlName="cont_VL">
+      <Property Name="Name">ProgressBarControl3</Property>
+      <Property Name="Size">311, 50</Property>
+      <Property Name="Location">50, 15</Property>
+      <Property Name="OriginValue">0</Property>
+      <Property Name="Maximum">8</Property>
+      <Property Name="DecimalPlaces">0</Property>
+      <Property Name="AlarmUpperLimit">8</Property>
+      <Property Name="ValueSize">38, 28</Property>
+      <Property Name="SymbolConfiguration">6;16;LM;;;bv_VL;1;;;-1;;;;</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl4" Children="Controls" ControlName="Static Text 4">
+      <Property Name="Name">StaticTextControl4</Property>
+      <Property Name="Size">55, 13</Property>
+      <Property Name="Location">124, 109</Property>
+      <Property Name="Text">Warnblink</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl3" Children="Controls" ControlName="Static Text 3">
+      <Property Name="Name">StaticTextControl3</Property>
+      <Property Name="Size">47, 13</Property>
+      <Property Name="Location">124, 191</Property>
+      <Property Name="Text">Fahrlicht</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl2" ControlName="cont_wb">
+      <Property Name="Name">SwitchControl2</Property>
+      <Property Name="Size">23, 30</Property>
+      <Property Name="Location">95, 100</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SwitchValuesRx">1;2;0;1</Property>
+      <Property Name="SwitchValuesVT">1;2;0/Lower/0;1/Lower/1</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;</Property>
+      <Property Name="SymbolConfiguration">6;16;SZMK;;;warnblink;1;;;-1;;;;</Property>
+      <Property Name="TabIndex">8</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl2" Children="Controls" ControlName="Static Text 2">
+      <Property Name="Name">StaticTextControl2</Property>
+      <Property Name="Size">61, 13</Property>
+      <Property Name="Location">502, 223</Property>
+      <Property Name="Text">Lenkwinkel</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="TrackBarControl2" Children="Controls" ControlName="con_steeringangle">
+      <Property Name="Name">TrackBarControl2</Property>
+      <Property Name="Size">261, 47</Property>
+      <Property Name="Location">408, 242</Property>
+      <Property Name="Maximum">50</Property>
+      <Property Name="DisplayMinMax">True</Property>
+      <Property Name="Minimum">-50</Property>
+      <Property Name="MaximumDouble">50</Property>
+      <Property Name="MinimumDouble">-50</Property>
+      <Property Name="DisplayValue">True</Property>
+      <Property Name="SymbolConfiguration">6;16;SZLS;;;lenkradwinkel;1;;;-1;;;;</Property>
+      <Property Name="TabIndex">6</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl1" Children="Controls" ControlName="Static Text 1">
+      <Property Name="Name">StaticTextControl1</Property>
+      <Property Name="Size">85, 13</Property>
+      <Property Name="Location">491, 151</Property>
+      <Property Name="Text">Geschwindigkeit</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="TrackBarControl1" Children="Controls" ControlName="cont_speed">
+      <Property Name="Name">TrackBarControl1</Property>
+      <Property Name="Size">261, 47</Property>
+      <Property Name="Location">408, 170</Property>
+      <Property Name="Maximum">50</Property>
+      <Property Name="DisplayMinMax">True</Property>
+      <Property Name="Minimum">-50</Property>
+      <Property Name="MaximumDouble">50</Property>
+      <Property Name="MinimumDouble">-50</Property>
+      <Property Name="DisplayValue">True</Property>
+      <Property Name="SymbolConfiguration">6;16;BSG;;;speed;1;;;-1;;;;</Property>
+      <Property Name="TabIndex">4</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl1" ControlName="cont_fl">
+      <Property Name="Name">SwitchControl1</Property>
+      <Property Name="Size">23, 30</Property>
+      <Property Name="Location">95, 182</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SwitchValuesRx">1;2;0;1</Property>
+      <Property Name="SwitchValuesVT">1;2;0/Lower/0;1/Lower/1</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;</Property>
+      <Property Name="SymbolConfiguration">6;16;LSM;;;fahrlicht;1;;;-1;;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ProgressBarControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="ProgressBarControl2" Children="Controls" ControlName="cont_VR">
+      <Property Name="Name">ProgressBarControl2</Property>
+      <Property Name="Size">311, 50</Property>
+      <Property Name="Location">383, 16</Property>
+      <Property Name="OriginValue">0</Property>
+      <Property Name="Maximum">8</Property>
+      <Property Name="DecimalPlaces">0</Property>
+      <Property Name="AlarmUpperLimit">8</Property>
+      <Property Name="ValueSize">38, 28</Property>
+      <Property Name="SymbolConfiguration">6;16;LM;;;bv_VR;1;;;-1;;;;</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ProgressBarControl, Vector.CANalyzer.Panels.CommonControls, Version=13.0.168.0, Culture=neutral, PublicKeyToken=null" Name="ProgressBarControl1" Children="Controls" ControlName="cont_HR">
+      <Property Name="Name">ProgressBarControl1</Property>
+      <Property Name="Size">311, 50</Property>
+      <Property Name="Location">384, 384</Property>
+      <Property Name="OriginValue">0</Property>
+      <Property Name="Maximum">8</Property>
+      <Property Name="DecimalPlaces">0</Property>
+      <Property Name="AlarmUpperLimit">8</Property>
+      <Property Name="ValueSize">38, 28</Property>
+      <Property Name="SymbolConfiguration">6;16;LM;;;bv_HR;1;;;-1;;;;</Property>
+    </Object>
+    <Property Name="Name">Panel</Property>
+    <Property Name="Size">741, 455</Property>
+    <Property Name="BackColor">White</Property>
+  </Object>
+</Panel>

@@ -1,0 +1,250 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+  byte sollAusstattung = 1; // 0 = Standard, 1 = lauflicht
+  byte LEDANZAHL = 8;
+  byte AN = 1;
+  byte AUS = 0;
+  
+  msTimer blTimer;
+  msTimer ablTimer;
+  
+  byte istLedCycle = 0;
+  byte sollLedCycle = 0;
+  byte ledOnCounter = 0;
+  byte waitCounter = 10;
+  byte ausstattung = 0; 
+  
+  byte returnToMain = 0;
+  
+  enum blinkState {Aus = 0, Links_Blink = 1, Rechts_Blink = 2, Warn_Blink = 3};
+  enum abbiegelichtState { Inaktiv = 0, Links_Aktiv = 1 , Rechts_Aktiv = 2};
+  enum hebelState {Links_Rastend = -2, Links_Tipp = -1, Nullstellung = 0, Rechts_Tipp = 1, Rechts_Rastend = 2};
+  
+  byte _warnblink = 0;
+  enum blinkState _blinkverhalten = Aus;
+  byte _anzahlLEDs = 0;
+  byte busAnzahlLED = 0;
+  enum hebelState _hebelstellung = Nullstellung;
+  
+  int _geschwindigkeit = 0;
+  int _lenkradwinkel = 0;
+  byte _fahrlicht = 0;
+}
+
+on start
+{
+  setTimer(blTimer,50);
+  setTimer(ablTimer,50);
+  ausstattung = sollAusstattung;
+}
+
+on PDU StatusWarnblink_WarnblinkPDU
+{
+  _warnblink = (byte)$StatusWarnblink_WarnblinkPDU::StatusWarnblink_WarnblinkPDU_WarnblinkAN_AUS;
+}
+
+on PDU Lichtmodul_Blinkersteuerung
+{
+  _blinkverhalten = (enum blinkState)$Lichtmodul_Blinkersteuerung::Lichtmodul_Blinkersteuerung_Blinkverhalten;
+  busAnzahlLED = $Lichtmodul_Blinkersteuerung::Lichtmodul_Blinkersteuerung_AnzahlLEDs;
+}
+
+on PDU Lenksaeule_Hebelstellung
+{
+  _hebelstellung = (enum hebelState)$Lenksaeule_Hebelstellung::Lenksaeule_Hebelstellung_Hebelstellung;
+}
+
+on PDU Geschwindigkeit_GesPDU
+{
+  _geschwindigkeit = $Geschwindigkeit_GesPDU::Geschwindigkeit_GesPDU_Ges;
+}
+
+on PDU Lenksaeule_Lenkradwinkel
+{
+  _lenkradwinkel = $Lenksaeule_Lenkradwinkel::Lenksaeule_Lenkradwinkel_Lenkradwinkel;
+}
+
+on PDU StatusFahrlicht_FahrlichtPDU
+{
+  _fahrlicht = $StatusFahrlicht_FahrlichtPDU::StatusFahrlicht_FahrlichtPDU_FahrlichtAN_AUS;  
+}
+  
+
+on timer ablTimer
+{
+  setTimer(ablTimer,50);
+  if(@sysvar::SIM::simToggle)
+   {
+    //write("_lenkradwinkel: %d", _lenkradwinkel);
+    
+    // ANF 012
+    if(_lenkradwinkel > 30 && _geschwindigkeit < 40 && _fahrlicht == AN)
+    {
+      $CAN::ZSE::Lichtmodul_Abbiegelicht::Lichtmodul_Abbiegelicht_AbbiegelichtAN_AUS = Rechts_Aktiv;
+    }// ANF 013
+    else if(_lenkradwinkel < -30 && _geschwindigkeit < 40 && _fahrlicht == AN)
+    {
+      $CAN::ZSE::Lichtmodul_Abbiegelicht::Lichtmodul_Abbiegelicht_AbbiegelichtAN_AUS = Links_Aktiv;
+    }
+    else
+    {
+      $CAN::ZSE::Lichtmodul_Abbiegelicht::Lichtmodul_Abbiegelicht_AbbiegelichtAN_AUS = Inaktiv;
+    }
+  }
+}
+
+on timer blTimer
+{
+  setTimer(blTimer,50);
+  if(@sysvar::SIM::simToggle)
+  {
+    returnToMain = 0;
+    // Variablen lokal abspeichern
+    _anzahlLEDs  = busAnzahlLED;
+    
+
+    //write("istCycle: %d, sollCycle: %d, LedOnCounter: %d, waitCounter: %d, _anzahlLEDs: %d", istLedCycle, sollLedCycle, ledOnCounter, waitCounter, _anzahlLEDs);
+
+    // Animations management
+    if(istLedCycle != 0 && _anzahlLEDs <= LEDANZAHL) 
+    {
+        if(ausstattung == 0)
+        {
+          // ANF 007 Standard ausstattung
+          // LEDs should be on for 10 cycles and then off for 10 Cycles
+          if(istLedCycle <= sollLedCycle)
+          {
+                if(waitCounter >= 1 && waitCounter < 10)
+                {
+                    waitCounter++;
+                }
+                if(ledOnCounter <= 10 && waitCounter == 10)
+                {
+                    ledOnCounter++;
+                    _anzahlLEDs = 8;
+                    returnToMain = 1;
+                }
+                if(ledOnCounter == 11)
+                {
+                  waitCounter = 1;
+                  istLedCycle++;
+                  _anzahlLEDs = 0;
+                  ledOnCounter = 0;
+                }
+          }
+        }
+        else
+        {
+            if(istLedCycle <= sollLedCycle)
+            {
+                // ANF 006 Lauflicht
+                if(waitCounter >= 1 && waitCounter < 10)
+                {
+                  waitCounter++;
+                }
+                if(_anzahlLEDs <= LEDANZAHL && waitCounter == 10)
+                {
+                  _anzahlLEDs++;
+                  returnToMain = 1;
+                }
+                if(_anzahlLEDs == LEDANZAHL+1)
+                {
+                  waitCounter = 1;
+                  istLedCycle++;
+                  _anzahlLEDs = 0;
+                }
+            }
+        }
+    }
+
+    // LED Cycles beenden
+    if(istLedCycle > sollLedCycle)
+    {
+      write("LED Cycle over");
+      // Animation beenden wenn Anzahl an LED Cycles erreicht ist
+      istLedCycle = 0;
+      sollLedCycle = 0;
+      _anzahlLEDs = 0;
+      ausstattung = sollAusstattung;
+    }
+
+    // ANF 001 Blinker Nullstellung
+    if(_hebelstellung == Nullstellung && istLedCycle == 0 && returnToMain == 0)
+    {
+        _blinkverhalten = Aus;
+    }
+
+    // ANF 002 Blinker Links Tipp
+    if(_hebelstellung == Links_Tipp && returnToMain == 0)
+    {
+        if(istLedCycle == 0)
+        {
+            istLedCycle = 1;
+            sollLedCycle = 3;
+            _blinkverhalten = Links_Blink;
+            returnToMain = 1;
+        }
+    }
+
+    // ANF 003 Blinker Links Rastend
+    if(_hebelstellung == Links_Rastend && returnToMain == 0)
+    {
+      if(istLedCycle == 0)
+      {
+          istLedCycle = 1;
+          sollLedCycle = 1;
+          _blinkverhalten = Links_Blink;
+          returnToMain = 1;
+      }
+    }
+
+    // ANF 004 Blinker Rechts Tipp
+    if(_hebelstellung == Rechts_Tipp && returnToMain == 0)
+    {
+        if(istLedCycle == 0)
+        {
+            istLedCycle = 1;
+            sollLedCycle = 3;
+            _blinkverhalten = Rechts_Blink;
+            returnToMain = 1;
+        }
+    }
+
+    // ANF 005 Blinker Rechts Rastend
+    if(_hebelstellung == Rechts_Rastend && returnToMain == 0)
+    {
+        if(istLedCycle == 0)
+        {
+            istLedCycle = 1;
+            sollLedCycle = 1;
+            _blinkverhalten = Rechts_Blink;
+            returnToMain = 1;
+        }
+    }
+
+    // ANF 010 Warnblink
+    if(_warnblink == AN)
+    {
+        if(istLedCycle == 0)
+        {
+          ausstattung = 0;
+          istLedCycle = 1;
+          sollLedCycle = 1;
+          _blinkverhalten = Warn_Blink;
+          returnToMain = 1;
+        }
+    }
+    
+    // Setzen der Werte
+    $CAN::ZSE::Lichtmodul_Blinkersteuerung::Lichtmodul_Blinkersteuerung_Blinkverhalten = _blinkverhalten;
+    $CAN::ZSE::Lichtmodul_Blinkersteuerung::Lichtmodul_Blinkersteuerung_AnzahlLEDs = _anzahlLEDs;
+  }
+}
+
+

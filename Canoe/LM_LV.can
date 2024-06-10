@@ -1,0 +1,37 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+  
+}
+
+on PDU Lichtmodul_Blinkersteuerung
+{
+  if($Lichtmodul_Blinkersteuerung_Blinkverhalten == 1)
+  {
+    @LM::bv_VL = $Lichtmodul_Blinkersteuerung_AnzahlLEDs;
+  }
+  else if($Lichtmodul_Blinkersteuerung_Blinkverhalten == 3)
+  {
+    @LM::bv_VL = $Lichtmodul_Blinkersteuerung_AnzahlLEDs;
+  }
+  else
+  {
+    @LM::bv_VL = 0;
+  }
+}
+
+on PDU Lichtmodul_Abbiegelicht
+{
+  if($Lichtmodul_Abbiegelicht_AbbiegelichtAN_AUS == 1)
+  {
+    @LM::ab_links = 1;
+  }else
+  {
+    @LM::ab_links = 0;
+  }
+}
